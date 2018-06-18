@@ -1,0 +1,29 @@
+namespace SampleApiSample
+{
+	using Google.Apis.Services;
+	using Google.Apis.YouTube.v3;
+	using Microsoft.AspNetCore;
+	using Microsoft.AspNetCore.Hosting;
+
+	public class Program
+    {
+		public static YouTubeService getYouTubeService()
+		{
+			return new YouTubeService(new BaseClientService.Initializer()
+			{
+				ApiKey = "AIzaSyBD43SJZiO2sCBvnlTwFXoQT66EwTD559k",
+				ApplicationName = "SubSplashSample"
+			});
+		}
+
+		public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .Build();
+    }
+}
